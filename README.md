@@ -28,71 +28,43 @@ Quoted from
 > of cities, what is the shortest possible route that visits each city exactly once and 
 > returns to the origin city?
 
-## Assignment
 
-The assignment is hosted on GitHub,
-[https://github.com/hayatoito/google-step-tsp](https://github.com/hayatoito/google-step-tsp).
+## How I solved
 
-You can download the assignment by `git clone`:
+- Greedy + 2-opt[solver_greedy2opt.py]
+The initial solution is generated using a greedy algorithm and then improved with 2-opt.
 
-```shellsession
-git clone https://github.com/hayatoito/google-step-tsp
-```
 
-The repository includes sample scripts written in Python 3, rather than in
-Python 2. It’s your responsibility to install Python 3 if you want to run the
-scripts, though running the scripts is not mandatory.
 
-There are 7 challenges of TSP in the assignment, from N = 5 to N = 2048:
 
-| Challenge   | N (= the number of cities) | Input file  | Output file  |
-| ----------- | -------------------------: | ----------- | ------------ |
-| Challenge 0 |                          5 | input_0.csv | output_0.csv |
-| Challenge 1 |                          8 | input_1.csv | output_1.csv |
-| Challenge 2 |                         16 | input_2.csv | output_2.csv |
-| Challenge 3 |                         64 | input_3.csv | output_3.csv |
-| Challenge 4 |                        128 | input_4.csv | output_4.csv |
-| Challenge 5 |                        512 | input_5.csv | output_5.csv |
-| Challenge 6 |                       2048 | input_6.csv | output_6.csv |
 
-See _Data Format Specification_ section to know the format of input and output
-files.
+### Result of Visualizer
 
-### Your tasks
 
-- Write a program, solving each TSP by designing and implementing an algorithm.
-- Overwrite each output file, `output_{0-6}.csv`, with the output of your
-  program.
-- Enter the _path length_ of your output in the [scoreboard], for each
-  challenge. Needless to say, a shorter path is better then a longer path.
+## Challenge 0
 
-### Visualizer
+| Method | Result | Total Distance
+|--------|--------|--------|
+| Random  | ![](/result/random/pictures/challenge0.png) | 3862.2 m 
+| Greedy  | ![](result/greedy/pictures/challenge0.png) | 3418.1 m
+| Greedy-2opt | ![](result/greedy2opt/pictures/challenge0.png) | 3291.62 m 
+## Challenge 1
 
-The demo page of the visualizer is
-[here](https://oribe.work/google-step-tsp/visualizer/build/default/).
+| Method | Result |
+|--------|--------|
+| Random  | ![](/result/random/pictures/challenge1.png) | 6101.57 m 
+| Greedy  | ![](result/greedy/pictures/challenge1.png) | 3832.29 m
+| Greedy-2opt | ![](result/greedy2opt/pictures/challenge1.png) | 3832.29 m
 
-The assignment includes a helper Web page,
-`visualizer/build/default/index.html`, which visualizes your solutions. You need
-to run a HTTP server on your local machine to access the visualizer. Any HTTP
-server is okay. If you are not sure how to run a web server, use the following
-command to run the HTTP server. Make sure that you are in the top directory of
-the assignment before running the command.
+## Challenge 2
 
-```shellsession
-python -m http.server # For Python 3
-python -m SimpleHTTPServer 8000 # If you don’t want to install Python 3
-```
+| Method | Result |
+|--------|--------|
+| Random  | ![](/result/random/pictures/challenge2.png) | 13479.25 m
+| Greedy  | ![](result/greedy/pictures/challenge2.png) | 5065.58 m
+| Greedy-2opt | ![](result/greedy2opt/pictures/challenge2.png) | 4670.27 m
 
-Then, open a browser and navigate to the
-[http://localhost:8000/visualizer/build/default/](http://localhost:8000/visualizer/build/default/).
 
-Visualizer was only tested by Google Chrome. Using the visualizer is up-to you.
-You don’t have to use the visualizer to finish the assignment. The visualizer is
-provided for the purpose of helping you understand the problem.
-
-See
-[GitHub Help](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/)
-to know how to enable GitHub pages on your repository.
 
 ## Data Format Specification
 
@@ -152,28 +124,7 @@ index
 These formats are requirements for the visualizer, which can take only properly
 formatted CSV files as input.
 
-## Schedule
 
-### The class begins: 2026-06-12 (Fri) 5:00pm
-
-I'll explain the "TSP" assignment.
-
-Action items on Friday:
-
-1.  Fill out your name in the first column of the [Scoreboard]:
-
-2.  Fork this repository into your own GitHub.
-
-### Coding: From: 2026-06-12 (Fri) 8:00pm - To: 2026-06-19 (Fri) 5:00pm
-
-For the next two weeks, you are expected to improve your algorithm and enter
-the score in the [scoreboard] manually for each challenge. You can update the
-score as many times as needed. I highly recommend you to update your score
-whenever you can find a shorter path.
-
-Feel free to submit, or continue working on this assignment past class 7. I
-will go over the results in class 7, so if you want to show off how well
-you did on the leaderboard, submit by classtime!
 
 ## What’s included in the assignment
 
@@ -196,64 +147,3 @@ the assignment, including, but not limited to:
 Details are intentionally omitted here. It is your responsibility to understand
 the contents of the repository.
 
-## Code of Conduct
-
-- Since we are competing for the best algorithm, please do not cheat:
-- You can get an assistance only from other STEP students, mentors, or
-  lecturers..
-- Don't get any assistance from any other people (e.g. your friends, professors,
-  etc).
-- Use your best judgment when using third party libraries. If it will be
-  non-trivial for a reviewer to understand the library, it may be doing too
-  much work that you could be learning from.
-- It is okay to use built-in libraries provided by programming languages, of
-  course.
-
-## Tips for Development
-
-The following tips might be helpful:
-
-- Commit often, and push often. Small commits are easy to review, and are
-  unlikely to conflict others' changes.
-
-- Your code should be consistency well formatted. Please make sure to use
-  appropriate code formatter, if you are not in confident. Don't try to format
-  your code by yourself if a tool can do that.
-
-## FAQ
-
-This FAQ includes the questions and the answers in the past years, as is. Some
-Q/A might be obsolete for this year.
-
-- Q. I found a typo in this document.
-
-- A. Please feel free to send a
-  [pull request](https://help.github.com/articles/using-pull-requests/), as a
-  practice, or file an issue at [GitHub Issues] if you are not confident using
-  git.
-
-- Q. Do I have to use the same code for every challenge?
-
-- A. No.
-
-- Q. Is there any limitation of machine resources I can use? Can I use multiple
-  machines? Can I run my algorithm 24 hours?
-
-- A. No limitation at all. You can use any machine resources you have.
-
-- Q. It seems that this document and the scoreboard are publicly viewable. Is
-  this intentional?
-
-- A. Yes. I am a fan of transparency. If you have any concerns, please let me
-  know that. I’ll honor your preference. Don’t enter any confidential
-  information.
-
-- Q. Can I look other student's repository?
-
-- A. Yes. Don't try to hide anything. Eveything should be open. It's fine to
-  exchange ideas between students, or borrow their ideas.
-
-## Acknowledgments
-
-This assignment is heavily inspired by
-[Discrete Optimization Course on Coursera](https://www.coursera.org/learn/discrete-optimization).
