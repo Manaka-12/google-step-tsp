@@ -98,8 +98,8 @@ Path length for each challenge:
 | 2 | 4494.42 |
 | 3 | 8467.91 |
 | 4 | 11271.92 |
-| 5 | 25331.84 |
-| 6 | 49892.05 |
+| 5 | Calculating |
+| 6 | Calculating |
 
 ## Data Format Specification
 
