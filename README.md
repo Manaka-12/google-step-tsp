@@ -31,11 +31,24 @@ Quoted from
 
 ## How I solved
 
-- Greedy + 2-opt[solver_greedy2opt.py]
-The initial solution is generated using a greedy algorithm and then improved with 2-opt.
+### Random
+- [solver_random.py](solver_random.py)
 
+The tour is initialized in the order of input indices.
 
+---
 
+### Greedy
+- [solver_greedy.py](solver_greedy.py)
+
+The tour is generated using a greedy algorithm.
+
+---
+
+### Greedy + 2-opt
+- [solver_greedy2opt.py](solver_greedy2opt.py)
+
+The initial solution is generated using a greedy algorithm and then improved using 2-opt optimization.
 
 
 ### Result of Visualizer
