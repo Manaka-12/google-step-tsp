@@ -70,8 +70,8 @@ Reference : https://qiita.com/take314/items/7eae18045e989d7eaf52
 
 ## Challenge 1
 
-| Method | Result |
-|--------|--------|
+| Method | Result | Total Distance
+|--------|--------|--------|
 | Random  | ![](/result/random/pictures/challenge1.png) | 6101.57 m 
 | Greedy  | ![](result/greedy/pictures/challenge1.png) | 3832.29 m
 | Greedy-2opt| ![](result/greedy2opt/pictures/challenge1.png) | 3832.29 m
@@ -79,8 +79,8 @@ Reference : https://qiita.com/take314/items/7eae18045e989d7eaf52
 
 ## Challenge 2
 
-| Method | Result |
-|--------|--------|
+| Method | Result | Total Distance
+|--------|--------|--------|
 | Random  | ![](/result/random/pictures/challenge2.png) | 13479.25 m
 | Greedy  | ![](result/greedy/pictures/challenge2.png) | 5065.58 m
 | Greedy-2opt | ![](result/greedy2opt/pictures/challenge2.png) | 4670.27 m
