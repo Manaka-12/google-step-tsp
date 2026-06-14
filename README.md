@@ -50,6 +50,12 @@ The tour is generated using a greedy algorithm.
 The initial solution is generated using a greedy algorithm and then improved using 2-opt optimization.
 
 
+### Greedy + 2-opt + SA(焼きなまし法)
+- [solver_greedy2optSA.py](solver_greedy2optSA.py)
+
+The initial solution is generated using a greedy algorithm and then improved using 2-opt optimization combined with Simulated Annealing to escape local optima.
+Reference : https://qiita.com/take314/items/7eae18045e989d7eaf52
+
 ## Result of Visualizer
 
 
@@ -60,13 +66,16 @@ The initial solution is generated using a greedy algorithm and then improved usi
 | Random  | ![](/result/random/pictures/challenge0.png) | 3862.2 m 
 | Greedy  | ![](result/greedy/pictures/challenge0.png) | 3418.1 m
 | Greedy-2opt | ![](result/greedy2opt/pictures/challenge0.png) | 3291.62 m 
+| Greedy-2opt + SA | ![](result/greedy2opt/pictures/challenge0.png) | 3291.62 m 
+
 ## Challenge 1
 
 | Method | Result |
 |--------|--------|
 | Random  | ![](/result/random/pictures/challenge1.png) | 6101.57 m 
 | Greedy  | ![](result/greedy/pictures/challenge1.png) | 3832.29 m
-| Greedy-2opt | ![](result/greedy2opt/pictures/challenge1.png) | 3832.29 m
+| Greedy-2opt| ![](result/greedy2opt/pictures/challenge1.png) | 3832.29 m
+| Greedy-2opt + SA | ![](result/greedy2optSA/pictures/challenge1.png) | 3778.72 m
 
 ## Challenge 2
 
@@ -75,8 +84,22 @@ The initial solution is generated using a greedy algorithm and then improved usi
 | Random  | ![](/result/random/pictures/challenge2.png) | 13479.25 m
 | Greedy  | ![](result/greedy/pictures/challenge2.png) | 5065.58 m
 | Greedy-2opt | ![](result/greedy2opt/pictures/challenge2.png) | 4670.27 m
+| Greedy-2opt + SA | ![](result/greedy2optSA/pictures/challenge2.png) | 4494.42 m
+
+## Result of Greedy-2opt + SA
 
 
+Path length for each challenge:
+
+| Challenge | Path length (m) |
+|------------|----------------|
+| 0 | 3291.62 |
+| 1 | 3778.72 |
+| 2 | 4494.42 |
+| 3 | 8467.91 |
+| 4 | 11271.92 |
+| 5 | 25331.84 |
+| 6 | 49892.05 |
 
 ## Data Format Specification
 
