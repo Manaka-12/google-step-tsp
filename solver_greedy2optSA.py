@@ -91,8 +91,7 @@ def solve(cities):
         iteration += 1
 
         # 1万回ループが回るごとに進捗を表示
-        if iteration % 10000 == 0:
-            print(f"進捗: 試行回数={iteration}, 現在の温度(T)={T:.4f}, ベスト距離={best_dist:.2f}", file=sys.stderr)
+       
 
     return best_tour
 
