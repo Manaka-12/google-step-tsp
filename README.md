@@ -82,7 +82,7 @@ An algorithm mimicking the physical process of annealing, where metals form neat
 ---
 
 ### Greedy + 3-opt + GA (Genetic Algorithm)
-- [solver_greedy3optGA.py](solver_greedy3optGA.py)
+- [solver_greedy3optGA.cpp](solver_greedy3optGA.cpp)
 
 The initial population is generated using greedy algorithms from diverse starting cities. These solutions are evolved through a Genetic Algorithm, with each child fully optimized by rigorous local search (Memetic Algorithm).
 
@@ -148,7 +148,7 @@ Path length for each challenge:
 | 5 | 25331.84 |
 | 6 | 49892.05 |
 
-# Homework 6 (optimize solver with Gemini )
+# Homework 6 (optimizing solver with Gemini )
 
 ## Result of Greedy-3opt + GA
 
@@ -157,7 +157,7 @@ Path length for each challenge:
 | Challenge | Path length (m) |
 |------------|----------------|
 | 6 | Calcurating |
-| 7 | Calcurating |
+| 7 |  81143.2 |
 
 
 
