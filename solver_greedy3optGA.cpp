@@ -324,13 +324,15 @@ static vector<int> solve(const vector<City>& cities, const string& save_path = "
     uniform_int_distribution<int> city_dist(0, n_cities - 1);
     uniform_real_distribution<double> prob_dist(0.0, 1.0);
 
-    cerr << "Generating initial population..." << endl;
+    cerr << "Filling initial population..." << endl;
     while (static_cast<int>(population.size()) < pop_size) {
         const int start_node = city_dist(rng);
         vector<int> ind = generate_greedy_tour(start_node, dist_matrix, neighbors);
         const double dist = calc_total_distance(ind, dist_matrix);
         population.push_back({dist, ind});
     }
+
+    cerr << "Initial population ready." << endl;
 
     sort(population.begin(), population.end(), [](const auto& lhs, const auto& rhs) {
         return lhs.first < rhs.first;

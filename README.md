@@ -156,8 +156,8 @@ Path length for each challenge:
 
 | Challenge | Path length (m) |
 |------------|----------------|
-| 6 | Calcurating |
-| 7 |  81143.2 |
+| 6 | 39692.6 |
+| 7 | 80744.8 |
 
 
 

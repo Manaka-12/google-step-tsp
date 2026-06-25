@@ -6,7 +6,7 @@ from pathlib import Path
 
 from common import format_tour, read_input
 
-CHALLENGES = 7
+CHALLENGES = 6
 
 
 SCRIPT_DIR = Path(__file__).resolve().parent
