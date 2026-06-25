@@ -46,6 +46,39 @@ def solve(cities):
         tour.append(current)
         visited[current] = True
 
+    # greedy のまま終わらないように、決定的な 2-opt を少数回だけ入れる
+    def apply_limited_2opt(tour, max_improvements=20):
+        n = len(tour)
+        improvements = 0
+
+        while improvements < max_improvements:
+            improved = False
+            for i in range(n - 1):
+                for j in range(i + 2, n - 1):
+                    a = tour[i]
+                    b = tour[i + 1]
+                    c = tour[j]
+                    d = tour[j + 1]
+
+                    old_dist = culc_distance(a, b) + culc_distance(c, d)
+                    new_dist = culc_distance(a, c) + culc_distance(b, d)
+
+                    if new_dist < old_dist:
+                        tour[i + 1:j + 1] = reversed(tour[i + 1:j + 1])
+                        improvements += 1
+                        improved = True
+                        break
+
+                if improved:
+                    break
+
+            if not improved:
+                break
+
+        return tour
+
+    tour = apply_limited_2opt(tour)
+
     # ============ここから焼きなまし法 (SA) + 2-opt ============ #
     n = len(tour)
     

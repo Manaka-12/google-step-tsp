@@ -31,33 +31,79 @@ Quoted from
 
 # How I solved
 
-### Random
-- [solver_random.py](solver_random.py)
-
-The tour is initialized in the order of input indices.
-
-
-
 ### Greedy
 - [solver_greedy.py](solver_greedy.py)
 
 The tour is generated using a greedy algorithm.
 
+<details>
+<summary><b>Algorithm</b></summary>
+
+A straightforward method that continuously selects the closest unvisited city from the current city.
+
+fast and simple algorithm .
+However , because it only focuses on immediate optimal choices, it often leaves distant cities isolated at the end. Connecting these remaining cities usually results in a massive distance penalty (highly prone to falling into local optima). 
+
+</details>
+
+---
 
 ### Greedy + 2-opt
 - [solver_greedy2opt.py](solver_greedy2opt.py)
 
 The initial solution is generated using a greedy algorithm and then improved using 2-opt optimization.
 
+<details>
+<summary><b>Algorithm</b></summary>
 
-### Greedy + 2-opt + SA(焼きなまし法)
+A technique that untangles crossed paths (edges) in the initial route created by the greedy algorithm. It cuts two edges in the route and reconnects them in a different order, keeping the change only if the total distance decreases.
+
+- By repeating this process until no more crossings exist (i.e., no further improvements can be made), the quality of the initial solution improves dramatically. However, it cannot fix fundamental structural flaws or large, inefficient detours in the overall route.
+
+</details>
+
+---
+
+### Greedy + 2-opt + SA (Simulated Annealing)
 - [solver_greedy2optSA.py](solver_greedy2optSA.py)
 
-The initial solution is generated using a greedy algorithm and then improved using 2-opt optimization combined with Simulated Annealing to escape local optima.
-Reference : https://qiita.com/take314/items/7eae18045e989d7eaf52
+The initial solution is generated using a greedy algorithm and then improved using 2-opt optimization combined with Simulated Annealing to escape local optima.  [Reference](https://qiita.com/take314/items/7eae18045e989d7eaf52)
 
-## Result of Visualizer
+<details>
+<summary><b>Algorithm</b></summary>
 
+An algorithm mimicking the physical process of annealing, where metals form neat, strong crystals when heated and slowly cooled. During the local search (2-opt), it occasionally accepts changes that **increase the distance (worsen the route)** based on a calculated probability.
+
+- **Temperature Parameter:** In the early stages (high temperature), it frequently allows worsening changes to explore the search space. In the later stages (low temperature), it becomes strict and only accepts improvements.
+- Even if the algorithm gets trapped in a strong local optimum (a "trap" route), accepting temporary deterioration allows it to escape on its own and eventually find a much better global solution.
+
+</details>
+
+---
+
+### Greedy + 3-opt + GA (Genetic Algorithm)
+- [solver_greedy3optGA.py](solver_greedy3optGA.py)
+
+The initial population is generated using greedy algorithms from diverse starting cities. These solutions are evolved through a Genetic Algorithm, with each child fully optimized by rigorous local search (Memetic Algorithm).
+
+<details>
+<summary><b>Algorithm</b></summary>
+
+A method that mimics biological evolution by combining multiple "excellent routes (individuals)" to create even better offspring in the next generation.
+
+- **Ensuring Diversity:** Maintains a population of various high-quality initial solutions by starting the greedy algorithm from different cities.
+- **Crossover:** Creates new routes by cutting and pasting good segments from two parent routes (e.g., using Order Crossover).
+- **Memetic Algorithm (Local Search Integration):** Immediately applies rigorous 2-opt or 3-opt to the newly generated offspring, pushing them to their absolute limits before they join the population. This "education" of the offspring yields far higher accuracy than relying solely on single-route improvements.
+
+</details>
+
+---
+
+
+
+# Result of Visualizer
+
+## Homework 5
 
 ## Challenge 0
 
@@ -86,7 +132,8 @@ Reference : https://qiita.com/take314/items/7eae18045e989d7eaf52
 | Greedy-2opt | ![](result/greedy2opt/pictures/challenge2.png) | 4670.27 m
 | Greedy-2opt + SA | ![](result/greedy2optSA/pictures/challenge2.png) | 4494.42 m
 
-## Result of Greedy-2opt + SA
+
+## Result of Greedy-2opt + SA (Best result of Homework 5)
 
 
 Path length for each challenge:
@@ -101,63 +148,33 @@ Path length for each challenge:
 | 5 | 25331.84 |
 | 6 | 49892.05 |
 
-## Data Format Specification
+# Homework 6 (optimize solver with Gemini )
 
-### Input Format
+## Result of Greedy-3opt + GA
 
-The input consists of `N + 1` lines. The first line is always `x,y`. It is
-followed by `N` lines, each line represents an i-th city’s location, point
-`xi,yi` where `xi`, `yi` is a floating point number.
+Path length for each challenge:
 
-```
-x,y
-x_0,y_0
-x_1,y_1
-…
-x_N-1,y_N-1
-```
+| Challenge | Path length (m) |
+|------------|----------------|
+| 6 | Calcurating |
+| 7 | Calcurating |
 
-### Output Format
 
-Output has `N + 1` lines. The first line should be “index”. It is followed by
-`N` lines, each line is the index of city, which represents the visitation
-order.
 
-```
-index
-v_0
-v_1
-v_2
-…
-v_N-1
-```
 
-### Example (Challenge 0, N = 5)
 
-Input Example:
 
-```
-x,y
-214.98279057984195,762.6903632435094
-1222.0393903625825,229.56212316547953
-792.6961393471055,404.5419583098643
-1042.5487563564207,709.8510160219619
-150.17533883877582,25.512728869805677
-```
 
-Output (Solution) Example:
 
-```
-index
-0
-2
-3
-1
-4
-```
 
-These formats are requirements for the visualizer, which can take only properly
-formatted CSV files as input.
+
+
+
+
+
+
+
+
 
 
 
